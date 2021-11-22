@@ -7,7 +7,7 @@ export default function Especificaciones() {
       <p>Esta es la página donde van a estar las especificaciones</p>
       <p>
         A la hora de empezar a idear este proyecto se me ocurren las siguientes
-        ideas:{' '}
+        ideas:
       </p>
       <ul>
         <li>

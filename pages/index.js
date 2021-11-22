@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Busqueda from '../components/Busqueda';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Home.module.css';
 
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className={styles.main}>
+        <Busqueda />
         <p>
           El objetivo de esta aplicación es poder tener un espacio donde se
           encuentren personas que necesitan compartir su experiencia con
