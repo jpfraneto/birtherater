@@ -11,13 +11,8 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href='/doctorxs'>
-            <a>Doctorxs</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/matronxs'>
-            <a>Matronxs</a>
+          <Link href='/profesional'>
+            <a>Profesionales</a>
           </Link>
         </li>
         <li>

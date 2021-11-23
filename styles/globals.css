@@ -18,3 +18,14 @@ a {
 main {
   padding: 1rem 10vw;
 }
+
+.btn button {
+  border: solid 2px black;
+  background-color: blue;
+  font-weight: bold;
+}
+
+button.btn-blue {
+  background-color: var(--color-blue);
+  color: white;
+}
