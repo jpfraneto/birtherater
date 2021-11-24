@@ -1,31 +1,9 @@
 import Link from 'next/link';
-import Busqueda from '../../../components/Busqueda';
+import Search from '../../components/Search';
 import { getDocs, query, collectionGroup } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-
-export async function getStaticProps({ params }) {
-  const { slug, name } = params;
-  console.log('the slug is: ', slug);
-  console.log('the name is: ', name);
-  return {
-    props: {},
-  };
-}
-
-export async function getStaticPaths(context) {
-  const snapshots = await getDocs(query(collectionGroup('matron@s')));
-  const paths = snapshots.forEach(doc => {
-    const { slug, name } = doc.data();
-    return {
-      params: { slug, name },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-}
+import initialDetails from '../../src/data/initialDetails';
 
 export default function Profesional({ props }) {
   const [profesional, setProfesional] = useState(null);
@@ -55,7 +33,7 @@ export default function Profesional({ props }) {
       ) : (
         <div>
           <p>Ese no existe! Puedes buscar otro acá:</p>
-          <Busqueda />
+          <Search details={initialDetails} />
         </div>
       )}
       <Link href='/'>

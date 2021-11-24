@@ -11,7 +11,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href='/profesional'>
+          <Link href='/profesionales'>
             <a>Profesionales</a>
           </Link>
         </li>

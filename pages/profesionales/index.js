@@ -17,7 +17,6 @@ export default function Profesional({}) {
     querySnapshot.forEach(doc => {
       profs.push(doc.data());
     });
-    console.log(profs);
     setProfesionales(profs);
     setLoading(false);
   };
