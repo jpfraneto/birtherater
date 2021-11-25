@@ -1,50 +1,41 @@
 import Link from 'next/link';
-import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function NewProfessional({}) {
-  const [name, setName] = useState('');
-  const [profType, setProfType] = useState('');
+  const [content, setContent] = useState({});
   const router = useRouter();
   const submitForm = async e => {
     e.preventDefault();
-    if (!profType || !name) return alert('please fill the form');
+    if (!content.type || !content.name) return alert('please fill the form');
     try {
-      await addDoc(collection(db, `${profType}`), {
-        name,
-        yes: '0%',
-        no: '0%',
-        comentarios: 0,
-        region: '',
-        location: '',
-        edad: 0,
-        profSlug: name.toLowerCase().replace(' ', '-'),
-      });
-
-      console.log('the document was written in the db');
+      const response = await axios.post('/api/profesionales/nuevo', content);
       router.push('/profesionales');
     } catch (error) {
       console.log(error);
-      console.log('there was an error saving the document in the db');
     }
+  };
+
+  const handleChange = e => {
+    setContent({ ...content, [e.target.name]: e.target.value });
   };
   return (
     <main>
       <p>This is the new profesional route</p>
-      <p>El nombre es: {`${name}`}</p>
-      <p>La especialidad es: {`${profType}`} </p>
+      <p>El nombre es: {`${content.name}`}</p>
+      <p>La especialidad es: {`${content.type}`} </p>
       <form onSubmit={e => submitForm(e)}>
         <input
           type='text'
-          value={name}
-          onChange={e => setName(e.target.value)}
+          name='name'
+          value={content.name}
+          onChange={e => handleChange(e)}
         />
-        <select name='' onChange={e => setProfType(e.target.value)}>
+        <select name='type' onChange={e => handleChange(e)}>
           <option value=''>Selecciona Tipo de Profesional</option>
-          <option value='ginecolog@s'>Ginecologa</option>
-          <option value='matron@s'>Matrona</option>
+          <option value='ginecologo'>Ginecolog@</option>
+          <option value='matron'>Matron@</option>
         </select>
 
         <button type='submit'>Add to DB</button>

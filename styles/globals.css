@@ -17,6 +17,7 @@ a {
 
 main {
   padding: 1rem 10vw;
+  height: 100vh;
 }
 
 .btn button {
@@ -28,4 +29,10 @@ main {
 button.btn-blue {
   background-color: var(--color-blue);
   color: white;
+}
+
+.searchInput {
+  background-color: aqua;
+  height: 44px;
+  margin: 12px 0;
 }

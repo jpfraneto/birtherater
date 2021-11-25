@@ -1,0 +1,5 @@
+.profesionalCard {
+  display: flex;
+  border: solid black 2px;
+  background-color: blanchedalmond;
+}
