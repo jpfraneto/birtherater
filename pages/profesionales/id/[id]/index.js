@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Loader from '../../../components/Loader';
-import ProfesionalCard from '../../../components/ProfesionalCard';
+import Loader from '../../../../components/Loader';
+import ProfesionalCard from '../../../../components/ProfesionalCard';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -16,7 +16,7 @@ export default function Profesional({}) {
   const getProfesional = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/profesionales/id/${router.query._id}`
+        `http://localhost:3000/api/profesionales/id/${router.query.id}`
       );
       const data = await response.json();
       setProfesional(data.message);
@@ -26,13 +26,7 @@ export default function Profesional({}) {
   };
 
   return (
-    <main
-      style={{
-        backgroundColor: '#666  ',
-        height: '300px',
-        border: '10px solid yellow',
-      }}
-    >
+    <main>
       {!profesional ? (
         <>
           <p>Loading!</p>

@@ -3,3 +3,12 @@
   border: solid black 2px;
   background-color: blanchedalmond;
 }
+
+.profesionalImage {
+  width: 300px;
+  height: auto;
+}
+
+.profesionalInfo {
+  margin: 8px;
+}

@@ -30,6 +30,19 @@ export default function Profesionals({ profesionales }) {
 }
 
 export async function getServerSideProps() {
+  // let { db } = await connectToDatabase();
+  // const data = await db
+  //   .collection('profesionales')
+  //   .find({})
+  //   .project({ _id: 1, name: 1 })
+  //   .toArray();
+  // const profesionales = await JSON.parse(JSON.stringify(data));
+  // return {
+  //   props: {
+  //     profesionales,
+  //   },
+  // };
+
   const response = await fetch('http://localhost:3000/api/profesionales');
   let data = await response.json();
   return {
