@@ -5,8 +5,10 @@
 }
 
 .profesionalImage {
-  width: 300px;
-  height: auto;
+  width: 22vw;
+  height: 22vw;
+  padding: 8px;
+  border-radius: 100%;
 }
 
 .profesionalInfo {

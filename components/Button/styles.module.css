@@ -2,4 +2,5 @@
   background-color: orange;
   padding: 4px;
   border: solid 2px black;
+  width: fit-content;
 }

@@ -7,12 +7,12 @@ export default function NewReview({}) {
   const [info, setInfo] = useState({});
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log('inside the handleSubmit, the info is: ', info);
     const res = await axios.put(
       `/api/profesionales/id/${router.query.id}/`,
       info
     );
-    console.log('the response is: ', res);
-    console.log(res.data);
+    router.push(`/profesionales/id/${router.query.id}`);
   };
   const handleChange = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -20,19 +20,24 @@ export default function NewReview({}) {
   return (
     <form onSubmit={e => handleSubmit(e)}>
       <label>
-        Comentario
+        Comentario{' '}
         <input type='text' name='review' onChange={e => handleChange(e)} />
       </label>
       <br />
       <label>
-        Nota de 1 a 7
+        Nota de 1 a 7{' '}
         <input
           type='number'
-          name='nota'
+          name='grade'
           min='0'
           max='7'
           onChange={e => handleChange(e)}
         />
+      </label>
+      <br />
+      <label>
+        ¿Quién eres?{' '}
+        <input type='text' name='author' onChange={e => handleChange(e)} />
       </label>
       <br />
 

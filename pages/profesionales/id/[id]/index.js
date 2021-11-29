@@ -9,7 +9,6 @@ export default function Profesional({}) {
   const router = useRouter();
 
   useEffect(() => {
-    console.log('inside the useeffect');
     if (router.asPath !== router.route) getProfesional();
   }, [router]);
 
@@ -33,7 +32,9 @@ export default function Profesional({}) {
           <Loader />
         </>
       ) : (
-        <ProfesionalCard profesional={profesional} />
+        <>
+          <ProfesionalCard profesional={profesional} />
+        </>
       )}
     </main>
   );

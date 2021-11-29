@@ -21,7 +21,11 @@ export default function Profesionals({ profesionales }) {
             .filter(x => x.name.toLowerCase().includes(name.toLowerCase()))
             .map(prof => (
               <li key={prof._id}>
-                <Link href={`/profesionales/id/${prof._id}`}>{prof.name}</Link>
+                <Link href={`/profesionales/id/${prof._id}`}>
+                  <a>
+                    {prof.name} - {prof.type}
+                  </a>
+                </Link>
               </li>
             ))}
       </ul>

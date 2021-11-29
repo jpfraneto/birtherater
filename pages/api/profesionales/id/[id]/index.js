@@ -20,7 +20,6 @@ async function getProfesional(req, res) {
       .find({ _id: ObjectId(req.query.id) })
       .toArray();
     const profesional = JSON.parse(JSON.stringify(cursor))[0];
-    console.log(profesional);
     return res.json({
       message: profesional,
       success: true,
@@ -35,14 +34,19 @@ async function getProfesional(req, res) {
 }
 
 async function updateProfesional(req, res) {
-  console.log('inside the updateProfesional route', req.query);
   try {
     let { db } = await connectToDatabase();
+    const { grade, review, author } = req.body;
+    const newReview = {
+      grade,
+      review,
+      author,
+    };
     await db
       .collection('profesionales')
       .updateOne(
         { _id: new ObjectId(req.query.id) },
-        { $set: { published: true } }
+        { $push: { reviews: newReview } }
       );
     res.json({ message: 'Profesional updated successfully' });
   } catch (error) {
@@ -53,3 +57,34 @@ async function updateProfesional(req, res) {
     });
   }
 }
+
+// async function updateProfesional(req, res) {
+//   try {
+//     let { db } = await connectToDatabase();
+//     await db
+//       .collection('profesionales')
+//       .aggregate(
+//         { _id: new ObjectId(req.query.id) },
+//         { $set: { published: true } }
+//       );
+//     const newReview = {
+//       grade: 2,
+//       comment: 'Bien penca este wn',
+//     };
+//     console.log('inside the api, the new review is: ', newReview);
+//     // await db.collection('profesionales').aggregate([
+//     //   { $match: { _id: new ObjectId(req.query.id) } },
+//     //   {
+//     //     $addFields: { reviews: { $concatArrays: ['$reviews', [newReview]] } },
+//     //   },
+//     // ]);
+//     console.log('después del await');
+//     res.json({ message: 'Profesional updated successfully' });
+//   } catch (error) {
+//     console.log('there was an error', error);
+//     res.json({
+//       message: error.message,
+//       success: false,
+//     });
+//   }
+// }
