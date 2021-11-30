@@ -11,11 +11,6 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href='/profesionales'>
-            <a>Profesionales</a>
-          </Link>
-        </li>
-        <li>
           <Link href='/especificaciones'>
             <a>Especificaciones</a>
           </Link>

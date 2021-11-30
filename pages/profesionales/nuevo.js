@@ -107,8 +107,8 @@ export default function NewProfessional({}) {
             <br />
             <button type='submit'>Agregar</button>
           </form>
-          <Link href='/profesionales'>
-            <a>Ir al directorio de profesionales</a>
+          <Link href='/'>
+            <a>Volver al Inicio</a>
           </Link>
         </main>
       ) : (
