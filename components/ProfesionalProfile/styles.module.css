@@ -1,0 +1,19 @@
+.profesionalCard {
+  width: 60%;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: solid black 2px;
+  background-color: rgb(187, 181, 181);
+}
+
+.profesionalImage {
+  width: 22vw;
+  height: 22vw;
+  padding: 8px;
+  border-radius: 100%;
+}
+
+.profesionalInfo {
+  margin: 8px;
+}

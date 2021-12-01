@@ -1,24 +1,27 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import styles from './styles.module.css';
 import axios from 'axios';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-export default function NewReview({}) {
+export default function NewReview({ reviews, setReviews }) {
+  const [review, setReview] = useState({});
   const router = useRouter();
-  const [info, setInfo] = useState({});
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('inside the handleSubmit, the info is: ', info);
+    console.log('inside the handleSubmit, the review is: ', review);
     const res = await axios.put(
       `/api/profesionales/id/${router.query.id}/`,
-      info
+      review
     );
-    router.push(`/profesionales/id/${router.query.id}`);
+    console.log('antes', reviews);
+    if (reviews) setReviews([review]);
+    else setReviews([...reviews, review]);
   };
   const handleChange = e => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
+    setReview({ ...review, [e.target.name]: e.target.value });
   };
   return (
-    <form onSubmit={e => handleSubmit(e)}>
+    <form className={styles.reviewForm} onSubmit={e => handleSubmit(e)}>
       <label>
         Comentario{' '}
         <input type='text' name='review' onChange={e => handleChange(e)} />
@@ -41,7 +44,7 @@ export default function NewReview({}) {
       </label>
       <br />
 
-      <button type='submit'>Agregar Comentario</button>
+      <button type='submit'>Agregar</button>
     </form>
   );
 }

@@ -18,6 +18,12 @@ a {
 main {
   padding: 1rem 10vw;
   height: 100vh;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 .btn button {
@@ -32,7 +38,18 @@ button.btn-blue {
 }
 
 .searchInput {
-  background-color: aqua;
+  background-color: rgb(0, 179, 255);
+  font-size: 1.61rem;
+  border-radius: 19px;
+  padding: 8px;
+  padding-right: 70px;
   height: 44px;
-  margin: 12px 0;
+  width: 60%;
+  margin: 12px auto;
+}
+.submitInput {
+  margin: 0;
+  margin-left: -70px;
+  cursor: pointer;
+  height: 44px;
 }

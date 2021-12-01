@@ -1,16 +1,30 @@
-.profesionalCard {
-  display: flex;
-  border: solid black 2px;
-  background-color: blanchedalmond;
-}
-
-.profesionalImage {
-  width: 22vw;
-  height: 22vw;
-  padding: 8px;
-  border-radius: 100%;
-}
-
-.profesionalInfo {
+.profCardDiv {
+  border: solid 2px black;
+  background-color: rgb(187, 181, 181);
+  padding: 2px;
+  border-radius: 8px;
   margin: 8px;
+  justify-content: center;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.profCardDiv:hover {
+  background-color: rgb(222, 222, 222);
+  box-shadow: 1px 1px black;
+}
+
+.profName {
+  font-weight: bold;
+}
+
+.profType {
+  color: red;
+  font-size: 0.7rem;
+}
+
+.profRegion {
+  color: green;
 }
