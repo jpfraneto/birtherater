@@ -38,8 +38,8 @@ async function updateProfesional(req, res) {
     let { db } = await connectToDatabase();
     const { grade, review, author } = req.body;
     const newReview = {
-      grade,
-      review,
+      grade: grade.replace(0, ' '),
+      review: encodeURIComponent(review),
       author,
     };
     await db

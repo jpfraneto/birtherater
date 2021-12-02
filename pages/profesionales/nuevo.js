@@ -16,7 +16,7 @@ export default function NewProfessional({}) {
     try {
       setLoading(true);
       const response = await axios.post('/api/profesionales/nuevo', content);
-      router.push('/profesionales');
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -66,23 +66,34 @@ export default function NewProfessional({}) {
             <label>
               ¿En qué parte del país?
               <br />
-              <select name='region' id='region' onChange={e => buscarComuna(e)}>
+              <select
+                name='region'
+                id='region'
+                onChange={e => {
+                  handleChange(e);
+                  buscarComuna(e);
+                }}
+              >
                 <option value='0'>Regiones</option>
-                <option value='1'>1 - Tarapaca</option>
-                <option value='2'>2 - Antofagasta</option>
-                <option value='3'>3 - Atacama</option>
-                <option value='4'>4 - Coquimbo</option>
-                <option value='5'>5 - Valparaiso</option>
-                <option value='6'>6 - O'Higgins</option>
-                <option value='7'>7 - Maule</option>
-                <option value='8'>8 - Bio - Bio</option>
-                <option value='9'>9 - Araucania</option>
-                <option value='10'>10 - Los Lagos</option>
-                <option value='11'>11 - Aisen</option>
-                <option value='12'>12 - Magallanes Y Antartica</option>
-                <option value='13'>13 - Metropolitana</option>
-                <option value='14'>14 - Los Rios</option>
-                <option value='15'>15 - Arica y Parinacota</option>
+                <option value='tarapaca'>1 - Tarapaca</option>
+                <option value='antofagasta'>2 - Antofagasta</option>
+                <option value='atacama'>3 - Atacama</option>
+                <option value='coquimbo'>4 - Coquimbo</option>
+                <option value='valparaiso'>5 - Valparaiso</option>
+                <option value='ohiggins'>6 - O'Higgins</option>
+                <option value='maule'>7 - Maule</option>
+                <option value='bio_bio'>8 - Bio - Bio</option>
+                <option value='araucania'>9 - Araucania</option>
+                <option value='los_lagos'>10 - Los Lagos</option>
+                <option value='aisen'>11 - Aisen</option>
+                <option value='magallanes_y_antartica'>
+                  12 - Magallanes Y Antartica
+                </option>
+                <option value='metropolitana'>13 - Metropolitana</option>
+                <option value='los_rios'>14 - Los Rios</option>
+                <option value='arica_y_parinacota'>
+                  15 - Arica y Parinacota
+                </option>
               </select>
               {comunas && (
                 <select

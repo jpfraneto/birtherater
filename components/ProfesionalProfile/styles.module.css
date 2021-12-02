@@ -1,19 +1,33 @@
-.profesionalCard {
+.profesionalProfile {
   width: 60%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80vh;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
+  padding: 4px 8px;
   border-radius: 8px;
   border: solid black 2px;
   background-color: rgb(187, 181, 181);
 }
 
-.profesionalImage {
-  width: 22vw;
-  height: 22vw;
-  padding: 8px;
-  border-radius: 100%;
-}
-
 .profesionalInfo {
   margin: 8px;
+}
+
+.profName {
+  text-align: center;
+  margin: 8px 0 0 0;
+}
+
+.profSubtitle {
+  text-align: center;
+}
+
+.newReviewBtn {
+  margin: 0 auto;
+  width: 30%;
 }

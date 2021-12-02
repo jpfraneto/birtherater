@@ -1,6 +1,18 @@
-.searchField {
-  background-color: aqua;
-  width: 300px;
-  height: 55px;
-  border: black solid 8px;
+.searchOptionsDiv {
+  height: 30px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+
+.searchOptions {
+  cursor: pointer;
+  margin: 0 4px;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.activeSearch {
+  transition: 0.4s;
+  background-color: aquamarine;
 }

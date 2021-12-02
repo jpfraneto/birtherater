@@ -1,0 +1,10 @@
+.reviewCard {
+  border: solid 1px black;
+  border-radius: 2px;
+  padding: 3px;
+}
+
+.reviewText {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

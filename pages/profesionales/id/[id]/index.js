@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Loader from '../../../../components/Loader';
 import { useRouter } from 'next/router';
 import { useUser } from '../../../../src/data/useUser';

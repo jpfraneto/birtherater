@@ -1,5 +1,6 @@
 .btn {
   background-color: orange;
+  margin: 0 auto;
   padding: 4px;
   border: solid 2px black;
   width: fit-content;

@@ -1,5 +1,8 @@
 .reviewsList {
+  max-height: 50%;
+  overflow-y: scroll;
   border: solid black 3px;
+  border-radius: 8px;
   padding: 0 4px;
   margin-bottom: 8px;
 }

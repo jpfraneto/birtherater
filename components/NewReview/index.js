@@ -8,14 +8,13 @@ export default function NewReview({ reviews, setReviews }) {
   const router = useRouter();
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('inside the handleSubmit, the review is: ', review);
     const res = await axios.put(
       `/api/profesionales/id/${router.query.id}/`,
       review
     );
-    console.log('antes', reviews);
-    if (reviews) setReviews([review]);
+    if (!reviews) setReviews([review]);
     else setReviews([...reviews, review]);
+    setReview({ author: '', review: '', grade: '' });
   };
   const handleChange = e => {
     setReview({ ...review, [e.target.name]: e.target.value });
@@ -24,7 +23,12 @@ export default function NewReview({ reviews, setReviews }) {
     <form className={styles.reviewForm} onSubmit={e => handleSubmit(e)}>
       <label>
         Comentario{' '}
-        <input type='text' name='review' onChange={e => handleChange(e)} />
+        <textarea
+          type='text'
+          value={review.review}
+          name='review'
+          onChange={e => handleChange(e)}
+        />
       </label>
       <br />
       <label>
@@ -32,6 +36,7 @@ export default function NewReview({ reviews, setReviews }) {
         <input
           type='number'
           name='grade'
+          value={review.grade}
           min='0'
           max='7'
           onChange={e => handleChange(e)}
@@ -40,7 +45,12 @@ export default function NewReview({ reviews, setReviews }) {
       <br />
       <label>
         ¿Quién eres?{' '}
-        <input type='text' name='author' onChange={e => handleChange(e)} />
+        <input
+          type='text'
+          value={review.author}
+          name='author'
+          onChange={e => handleChange(e)}
+        />
       </label>
       <br />
 
