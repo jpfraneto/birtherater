@@ -248,23 +248,22 @@ const ciudades_15 = new Array(
   'Tocopilla'
 );
 
-const ciudades = [
-  [],
-  ciudades_1,
-  ciudades_2,
-  ciudades_3,
-  ciudades_4,
-  ciudades_5,
-  ciudades_6,
-  ciudades_7,
-  ciudades_8,
-  ciudades_9,
-  ciudades_10,
-  ciudades_11,
-  ciudades_12,
-  ciudades_13,
-  ciudades_14,
-  ciudades_15,
-];
+const ciudades = {
+  tarapaca: ciudades_1,
+  antofagasta: ciudades_2,
+  atacama: ciudades_3,
+  coquimbo: ciudades_4,
+  valparaiso: ciudades_5,
+  ohiggins: ciudades_6,
+  maule: ciudades_7,
+  bio_bio: ciudades_8,
+  araucania: ciudades_9,
+  los_lagos: ciudades_14,
+  aisen: ciudades_11,
+  magallanes_y_antartica: ciudades_12,
+  metropolitana: ciudades_13,
+  los_rios: ciudades_10,
+  arica_y_parinacota: ciudades_15,
+};
 
 export default ciudades;

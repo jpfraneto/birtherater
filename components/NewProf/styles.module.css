@@ -1,0 +1,13 @@
+.newProf {
+  background-color: cornsilk;
+  padding: 13px;
+  border: solid 1px black;
+  border-radius: 2px;
+  text-align: center;
+  margin: 50px auto;
+  width: fit-content;
+}
+
+.returnBtn {
+  font-size: 1.2rem;
+}

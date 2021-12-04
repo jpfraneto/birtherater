@@ -17,7 +17,6 @@ a {
 
 main {
   padding: 1rem 10vw;
-  height: 100vh;
   text-align: center;
 }
 
@@ -37,16 +36,6 @@ button.btn-blue {
   color: white;
 }
 
-.searchInput {
-  background-color: rgb(0, 179, 255);
-  font-size: 1.61rem;
-  border-radius: 19px;
-  padding: 8px;
-  padding-right: 70px;
-  height: 44px;
-  width: 60%;
-  margin: 12px auto;
-}
 .submitInput {
   margin: 0;
   margin-left: -70px;

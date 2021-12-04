@@ -11,7 +11,12 @@ export default function ProfesionalProfile({ profesional }) {
     <div className={styles.profesionalProfile}>
       <h2 className={styles.profName}>{profesional.name}</h2>
       <p className={styles.profSubtitle}>
-        {profesional.type} / {profesional.region}
+        {profesional.type} /
+        {profesional.center &&
+          profesional.comuna &&
+          ` ${profesional.center}, ${profesional.comuna
+            .charAt(0)
+            .toUpperCase()}${profesional.comuna.slice(1)}`}
       </p>
       {reviews && <ReviewsList reviews={reviews} />}
 

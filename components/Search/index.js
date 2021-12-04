@@ -24,6 +24,11 @@ export default function Search({ data, profesionales, setProfesionales }) {
   const buscarComuna = e => {
     setRegion(ciudades[e.target.value]);
   };
+
+  const cambioComuna = e => {
+    updateSearch(e);
+    setComuna(e.target.value);
+  };
   return (
     <section>
       <div className={styles.searchOptionsDiv}>
@@ -52,7 +57,7 @@ export default function Search({ data, profesionales, setProfesionales }) {
         {searchType ? (
           <input
             onChange={e => updateSearch(e)}
-            className='searchInput'
+            className={styles.searchInput}
             type='text'
             placeholder='Nombre profesional'
           />
@@ -61,12 +66,13 @@ export default function Search({ data, profesionales, setProfesionales }) {
             <select
               name='region'
               id='region'
+              className={styles.regionSelect}
               onChange={e => {
                 updateSearch(e);
                 buscarComuna(e);
               }}
             >
-              <option value='0'>Regiones</option>
+              <option value='0'>Región</option>
               <option value='tarapaca'>1 - Tarapaca</option>
               <option value='antofagasta'>2 - Antofagasta</option>
               <option value='atacama'>3 - Atacama</option>
@@ -88,9 +94,14 @@ export default function Search({ data, profesionales, setProfesionales }) {
               </option>
             </select>
             {region && (
-              <select name='comuna' id='comuna' onChange={e => updateSearch(e)}>
+              <select
+                className={styles.regionSelect}
+                name='comuna'
+                id='comuna'
+                onChange={cambioComuna}
+              >
                 <option value='0' defaultValue>
-                  Comunas por Region
+                  Selecciona la Comuna
                 </option>
                 {region.map((comuna, index) => {
                   return (

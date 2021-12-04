@@ -1,5 +1,10 @@
 import styles from './styles.module.css';
 
 export default function Loader({}) {
-  return <div className={styles.loader}></div>;
+  return (
+    <div className={styles.loaderContainer}>
+      <div className={styles.loader}></div>
+      <p>Cargando...</p>
+    </div>
+  );
 }
