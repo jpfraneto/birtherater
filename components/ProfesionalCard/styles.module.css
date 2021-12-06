@@ -9,11 +9,23 @@
   width: 150px;
   height: 150px;
   cursor: pointer;
+  animation: fadeIn 1s linear;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .profCardDiv:hover {
   background-color: rgb(222, 222, 222);
   box-shadow: 1px 1px black;
+  transform: translate(-5px, -5px);
 }
 
 .profName {
@@ -27,4 +39,8 @@
 
 .profRegion {
   color: green;
+}
+
+.reviewsSpan {
+  font-size: 0.7rem;
 }

@@ -1,6 +1,6 @@
 import { connectToDatabase } from '../../../lib/mongodb';
 
-export default async function (req, res) {
+export default function handler(req, res) {
   switch (req.method) {
     case 'POST': {
       return newProfessional(req, res);

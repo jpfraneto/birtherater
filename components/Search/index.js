@@ -10,7 +10,7 @@ export default function Search({ data, profesionales, setProfesionales }) {
   const updateSearch = e => {
     let profs;
     if (e.target.name === region) {
-      return (profs = data.message.filter(x => x.region === e.target.value));
+      profs = data.message.filter(x => x.region === e.target.value);
     }
     if (searchType) {
       profs = data.message.filter(x =>
@@ -78,7 +78,7 @@ export default function Search({ data, profesionales, setProfesionales }) {
               <option value='atacama'>3 - Atacama</option>
               <option value='coquimbo'>4 - Coquimbo</option>
               <option value='valparaiso'>5 - Valparaiso</option>
-              <option value='ohiggins'>6 - O'Higgins</option>
+              <option value='ohiggins'>6 - OHiggins</option>
               <option value='maule'>7 - Maule</option>
               <option value='bio_bio'>8 - Bio - Bio</option>
               <option value='araucania'>9 - Araucania</option>
@@ -105,7 +105,10 @@ export default function Search({ data, profesionales, setProfesionales }) {
                 </option>
                 {region.map((comuna, index) => {
                   return (
-                    <option value={comuna.replace(' ', '_').toLowerCase()}>
+                    <option
+                      key={index}
+                      value={comuna.replace(' ', '_').toLowerCase()}
+                    >
                       {comuna}
                     </option>
                   );

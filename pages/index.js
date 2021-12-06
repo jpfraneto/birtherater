@@ -15,7 +15,7 @@ export default function Profesionals({}) {
 
   return (
     <main>
-      <h1>Birtherater</h1>
+      <h1>Profesionales del Parto</h1>
       <h4>
         Evalúa y revisa evaluaciones de quien va a estar encargado de tu parto
       </h4>

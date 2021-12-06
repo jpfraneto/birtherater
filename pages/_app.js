@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json());
 function MyApp({ Component, pageProps }) {
   return (
     <SWRConfig value={{ fetcher }}>
-      <Navbar />
+      {/* <Navbar /> */}
       <Component {...pageProps} />
       <BottomNav />
     </SWRConfig>

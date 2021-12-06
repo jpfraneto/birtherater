@@ -7,7 +7,6 @@ export default function NewReview({}) {
   const [info, setInfo] = useState({});
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('inside the handleSubmit, the info is: ', info);
     const res = await axios.put(
       `/api/profesionales/id/${router.query.id}/`,
       info

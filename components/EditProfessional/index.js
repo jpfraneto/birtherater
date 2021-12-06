@@ -1,46 +1,53 @@
-import styles from './styles.module.css';
-import Link from 'next/link';
-import axios from 'axios';
 import { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 import ciudades from '../../src/data/regionesyciudades';
 
-export default function NewProf({ router, setLoading }) {
-  const [content, setContent] = useState({});
+export default function EditProfessional({ data }) {
+  const router = useRouter();
+  const [profesional, setProfesional] = useState(data.message);
   const [comunas, setComunas] = useState([]);
   const submitForm = async e => {
     e.preventDefault();
-    if (!content.type || !content.name) return alert('please fill the form');
-    try {
-      setLoading(true);
-      const response = await axios.post('/api/profesionales/nuevo', content);
-      router.push('/');
-    } catch (error) {
-      console.log(error);
-    }
+    console.log('inside the edit profesional route');
+    const res = await axios.put(
+      `/api/profesionales/id/${router.query.id}/edit`,
+      profesional
+    );
+    // console.log('the prof was updated');
+    router.push(`/profesionales/id/${router.query.id}`);
   };
-
   const handleChange = e => {
-    setContent({ ...content, [e.target.name]: e.target.value });
+    setProfesional(() => {
+      return { ...profesional, [e.target.name]: e.target.value };
+    });
   };
 
   const buscarComuna = e => {
     handleChange(e);
     setComunas(ciudades[e.target.value]);
   };
+
   return (
-    <div className={styles.newProf}>
-      <form onSubmit={e => submitForm(e)}>
+    <>
+      {' '}
+      <form onSubmit={submitForm}>
         <div>
           <label>¿Cuál es su nombre?</label>
           <input
             type='text'
             name='name'
-            value={content.name}
+            value={profesional.name}
             onChange={e => handleChange(e)}
           />
         </div>
         <div>
-          <select name='type' onChange={e => handleChange(e)}>
+          <select
+            name='type'
+            value={profesional.type}
+            onChange={e => handleChange(e)}
+          >
             <option value=''>Selecciona Tipo de Profesional</option>
             <option value='Ginecologo'>Ginecologo</option>
             <option value='Ginecologa'>Ginecologa</option>
@@ -53,7 +60,7 @@ export default function NewProf({ router, setLoading }) {
           <input
             type='text'
             name='center'
-            value={content.center}
+            value={profesional.center}
             onChange={e => handleChange(e)}
           />
         </div>
@@ -65,7 +72,7 @@ export default function NewProf({ router, setLoading }) {
           <select
             name='region'
             id='region'
-            value={content.region}
+            value={profesional.region}
             onChange={e => {
               handleChange(e);
               buscarComuna(e);
@@ -77,7 +84,7 @@ export default function NewProf({ router, setLoading }) {
             <option value='atacama'>3 - Atacama</option>
             <option value='coquimbo'>4 - Coquimbo</option>
             <option value='valparaiso'>5 - Valparaiso</option>
-            <option value='ohiggins'>6 - O&aposHiggins</option>
+            <option value='ohiggins'>6 - O'Higgins</option>
             <option value='maule'>7 - Maule</option>
             <option value='bio_bio'>8 - Bio - Bio</option>
             <option value='araucania'>9 - Araucania</option>
@@ -91,16 +98,18 @@ export default function NewProf({ router, setLoading }) {
             <option value='arica_y_parinacota'>15 - Arica y Parinacota</option>
           </select>
           {comunas && (
-            <select name='comuna' id='comuna' onChange={e => handleChange(e)}>
+            <select
+              name='comuna'
+              value={profesional.comuna}
+              id='comuna'
+              onChange={e => handleChange(e)}
+            >
               <option value='0' defaultValue>
                 Comunas por Region
               </option>
               {comunas.map((comuna, index) => {
                 return (
-                  <option
-                    key={index}
-                    value={comuna.replace(' ', '_').toLowerCase()}
-                  >
+                  <option value={comuna.replace(' ', '_').toLowerCase()}>
                     {comuna}
                   </option>
                 );
@@ -110,11 +119,11 @@ export default function NewProf({ router, setLoading }) {
         </label>
 
         <br />
-        <button type='submit'>Agregar</button>
+        <button type='submit'>Send Edit</button>
       </form>
-      <Link href='/'>
-        <a className={styles.returnBtn}> Volver al Inicio</a>
+      <Link href={`/profesionales/id/${router.query.id}`}>
+        <a>Go Back</a>
       </Link>
-    </div>
+    </>
   );
 }

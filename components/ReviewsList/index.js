@@ -16,9 +16,9 @@ export default function ReviewsList({ reviews }) {
       </p>
       {reviews.reverse().map((review, index) => {
         return (
-          <p>
-            <ReviewCard key={index} review={review} />
-          </p>
+          <div key={index}>
+            <ReviewCard review={review} />
+          </div>
         );
       })}
     </div>

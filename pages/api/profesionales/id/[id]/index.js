@@ -1,7 +1,7 @@
 import { connectToDatabase } from '../../../../../lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-export default async function (req, res) {
+export default function handler(req, res) {
   switch (req.method) {
     case 'GET': {
       return getProfesional(req, res);

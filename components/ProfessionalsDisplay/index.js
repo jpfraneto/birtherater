@@ -5,7 +5,7 @@ export default function ProfessionalsDisplay({ professionals }) {
   return (
     <div className={styles.profsDisplay}>
       {professionals.map(prof => (
-        <ProfessionalCard professional={prof} />
+        <ProfessionalCard key={prof._id} professional={prof} />
       ))}
     </div>
   );

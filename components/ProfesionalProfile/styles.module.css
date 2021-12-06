@@ -31,3 +31,8 @@
   margin: 0 auto;
   width: 30%;
 }
+
+.profTitle {
+  display: flex;
+  justify-content: center;
+}
