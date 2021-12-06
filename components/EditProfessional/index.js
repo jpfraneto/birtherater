@@ -84,7 +84,7 @@ export default function EditProfessional({ data }) {
             <option value='atacama'>3 - Atacama</option>
             <option value='coquimbo'>4 - Coquimbo</option>
             <option value='valparaiso'>5 - Valparaiso</option>
-            <option value='ohiggins'>6 - O'Higgins</option>
+            <option value='ohiggins'>6 - OHiggins</option>
             <option value='maule'>7 - Maule</option>
             <option value='bio_bio'>8 - Bio - Bio</option>
             <option value='araucania'>9 - Araucania</option>
@@ -109,7 +109,10 @@ export default function EditProfessional({ data }) {
               </option>
               {comunas.map((comuna, index) => {
                 return (
-                  <option value={comuna.replace(' ', '_').toLowerCase()}>
+                  <option
+                    key={index}
+                    value={comuna.replace(' ', '_').toLowerCase()}
+                  >
                     {comuna}
                   </option>
                 );
