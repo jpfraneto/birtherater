@@ -39,7 +39,14 @@ export default function ProfesionalProfile({ profesional }) {
         Escribir nuevo review
       </button>
 
-      {newReview && <NewReview reviews={reviews} setReviews={setReviews} />}
+      {newReview && (
+        <NewReview
+          profName={profesional.name}
+          reviews={reviews}
+          setNewReview={setNewReview}
+          setReviews={setReviews}
+        />
+      )}
       <br />
 
       <Button link='/' text='Atrás' />

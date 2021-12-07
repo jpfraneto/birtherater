@@ -3,7 +3,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function NewReview({ reviews, setReviews }) {
+export default function NewReview({
+  profName,
+  reviews,
+  setReviews,
+  setNewReview,
+}) {
   const [review, setReview] = useState({});
   const [sent, setSent] = useState('');
   const router = useRouter();
@@ -26,7 +31,8 @@ export default function NewReview({ reviews, setReviews }) {
       {sent ? (
         <p>{sent}</p>
       ) : (
-        <div>
+        <div className={styles.reviewFormWrapper}>
+          <p>{`Agrega un nuevo comentario a ${profName}`}</p>
           <form className={styles.reviewForm} onSubmit={e => handleSubmit(e)}>
             <label>
               Comentario{' '}
@@ -60,8 +66,17 @@ export default function NewReview({ reviews, setReviews }) {
               />
             </label>
             <br />
-
-            <button type='submit'>Agregar</button>
+            <div className={styles.newBtns}>
+              <button
+                type='button'
+                onClick={() => {
+                  setNewReview(false);
+                }}
+              >
+                Cancelar
+              </button>
+              <button type='submit'>Agregar</button>
+            </div>
           </form>
         </div>
       )}

@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
     <SWRConfig value={{ fetcher }}>
       {/* <Navbar /> */}
       <Component {...pageProps} />
-      <BottomNav />
     </SWRConfig>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './styles.module.css';
 import ciudades from '../../src/data/regionesyciudades';
 
@@ -118,6 +119,9 @@ export default function Search({ data, profesionales, setProfesionales }) {
           </>
         )}
       </div>
+      <Link href='/profesionales/nuevo'>
+        <a>AGREGAR PROFESIONAL</a>
+      </Link>
     </section>
   );
 }
