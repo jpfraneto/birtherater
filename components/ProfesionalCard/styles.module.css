@@ -11,6 +11,7 @@
   cursor: pointer;
   animation: fadeIn 1s linear;
   transition: all 0.3s ease-in-out;
+  box-shadow: 5px 5px 3px #888888;
 }
 
 @keyframes fadeIn {
@@ -23,9 +24,10 @@
 }
 
 .profCardDiv:hover {
-  background-color: rgb(222, 222, 222);
+  opacity: 0.8;
   box-shadow: 1px 1px black;
-  transform: translate(-5px, -5px);
+  transition: 0.3 ease-in-out all;
+  transform: translate(-3px, -3px);
 }
 
 .profName {

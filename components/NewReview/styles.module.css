@@ -1,10 +1,9 @@
 .reviewFormWrapper {
   border: solid 3px black;
   background-color: rgba(255, 255, 255, 1);
-  padding: 4px;
+  padding: 12px;
   width: 70vh;
   height: 70vh;
-  margin-top: 8px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,10 +16,50 @@
   height: 100%;
 }
 
-.newBtns {
-  position: absolute;
+.reviewForm label {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.reviewForm input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+.reviewForm textarea {
+  height: 10rem;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+.commentText {
   text-align: center;
-  left: 50%;
-  bottom: 8px;
-  transform: translateX(-50%);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.buttonsDiv {
+  text-align: center;
+}
+
+.buttonsDiv button {
+  margin: 30px 15px;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  padding: 8px;
+  transition: 1s all ease;
+  background-color: white;
+}
+
+.buttonsDiv button:hover {
+  cursor: pointer;
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px black;
+  transition: 0.3s all ease;
+  background-color: gray;
 }

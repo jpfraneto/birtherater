@@ -14,6 +14,7 @@ export default function NewReview({
   const router = useRouter();
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log('the review is: ', review);
     const res = await axios.put(
       `/api/profesionales/id/${router.query.id}/`,
       review
@@ -32,18 +33,21 @@ export default function NewReview({
         <p>{sent}</p>
       ) : (
         <div className={styles.reviewFormWrapper}>
-          <p>{`Agrega un nuevo comentario a ${profName}`}</p>
+          <p className={styles.commentText}>
+            {' '}
+            {`Agrega un nuevo comentario a ${profName}`}
+          </p>
           <form className={styles.reviewForm} onSubmit={e => handleSubmit(e)}>
             <label>
-              Comentario{' '}
-              <textarea
+              ¿Quién eres?{' '}
+              <input
                 type='text'
-                value={review.review}
-                name='review'
+                value={review.author}
+                name='author'
+                required
                 onChange={e => handleChange(e)}
               />
             </label>
-            <br />
             <label>
               Nota de 1 a 7{' '}
               <input
@@ -52,21 +56,21 @@ export default function NewReview({
                 value={review.grade}
                 min='0'
                 max='7'
+                required
                 onChange={e => handleChange(e)}
               />
             </label>
-            <br />
             <label>
-              ¿Quién eres?{' '}
-              <input
+              Comentario
+              <textarea
                 type='text'
-                value={review.author}
-                name='author'
+                value={review.review}
+                required
+                name='review'
                 onChange={e => handleChange(e)}
               />
             </label>
-            <br />
-            <div className={styles.newBtns}>
+            <div className={styles.buttonsDiv}>
               <button
                 type='button'
                 onClick={() => {
@@ -77,6 +81,55 @@ export default function NewReview({
               </button>
               <button type='submit'>Agregar</button>
             </div>
+            {/* <ul>
+              <li>
+                <label for='author-input'>¿Quién eres? </label>
+                <input
+                  id='author-input'
+                  type='text'
+                  value={review.author}
+                  name='author'
+                  onChange={e => handleChange(e)}
+                />
+              </li>
+
+              <li>
+                <label for='grade-input'>Nota de 1 a 7 </label>
+                <input
+                  id='grade-input'
+                  type='number'
+                  name='grade'
+                  value={review.grade}
+                  min='0'
+                  max='7'
+                  onChange={e => handleChange(e)}
+                />
+              </li>
+              <li>
+                {' '}
+                <label id='review-textarea-label' for='review-textarea'>
+                  Comentario{' '}
+                </label>
+                <textarea
+                  id='review-textarea'
+                  type='text'
+                  value={review.review}
+                  name='review'
+                  onChange={e => handleChange(e)}
+                />
+              </li>
+              <li className={styles.buttonsSpace}>
+                <button
+                  type='button'
+                  onClick={() => {
+                    setNewReview(false);
+                  }}
+                >
+                  Cancelar
+                </button>
+                <button type='submit'>Agregar</button>
+              </li>
+            </ul> */}
           </form>
         </div>
       )}

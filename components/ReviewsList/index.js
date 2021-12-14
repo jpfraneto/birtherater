@@ -15,11 +15,7 @@ export default function ReviewsList({ reviews }) {
         ).toFixed(2)}
       </p>
       {reviews.reverse().map((review, index) => {
-        return (
-          <div key={index}>
-            <ReviewCard review={review} />
-          </div>
-        );
+        return <ReviewCard key={index} review={review} />;
       })}
     </div>
   );

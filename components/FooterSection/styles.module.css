@@ -6,11 +6,16 @@
   background-color: rgb(146, 165, 126);
   font-weight: bold;
   width: 100%;
+  height: 20vh;
+  position: fixed;
+  bottom: 0;
+  overflow-y: scroll;
 }
 
 .elementsDiv {
   color: black;
   font-size: 1rem;
+  margin-top: 8px;
   display: flex;
   justify-content: space-around;
   align-items: center;

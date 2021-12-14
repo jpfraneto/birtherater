@@ -17,7 +17,7 @@ export default function Profesionals({}) {
 
   return (
     <main>
-      <section>
+      <section class='main-section'>
         <h1>Profesionales del Parto</h1>
         <h4>
           Evalúa y revisa evaluaciones de quien va a estar encargado de tu parto

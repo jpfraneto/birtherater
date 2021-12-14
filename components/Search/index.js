@@ -120,7 +120,9 @@ export default function Search({ data, profesionales, setProfesionales }) {
         )}
       </div>
       <Link href='/profesionales/nuevo'>
-        <a>AGREGAR PROFESIONAL</a>
+        <a>
+          <strong>AGREGAR PROFESIONAL</strong>
+        </a>
       </Link>
     </section>
   );
