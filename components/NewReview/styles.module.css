@@ -1,6 +1,6 @@
 .reviewFormWrapper {
   border: solid 3px black;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(182, 179, 158);
   padding: 12px;
   width: 70vh;
   height: 70vh;
@@ -61,5 +61,12 @@
   transform: translate(-2px, -2px);
   box-shadow: 2px 2px black;
   transition: 0.3s all ease;
-  background-color: gray;
+}
+
+.buttonsDiv .redButton:hover {
+  background-color: rgb(222, 146, 146);
+}
+
+.buttonsDiv .greenButton:hover {
+  background-color: rgb(146, 222, 154);
 }

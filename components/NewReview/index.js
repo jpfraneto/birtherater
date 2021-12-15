@@ -72,6 +72,7 @@ export default function NewReview({
             </label>
             <div className={styles.buttonsDiv}>
               <button
+                className={styles.redButton}
                 type='button'
                 onClick={() => {
                   setNewReview(false);
@@ -79,57 +80,10 @@ export default function NewReview({
               >
                 Cancelar
               </button>
-              <button type='submit'>Agregar</button>
+              <button className={styles.greenButton} type='submit'>
+                Agregar
+              </button>
             </div>
-            {/* <ul>
-              <li>
-                <label for='author-input'>¿Quién eres? </label>
-                <input
-                  id='author-input'
-                  type='text'
-                  value={review.author}
-                  name='author'
-                  onChange={e => handleChange(e)}
-                />
-              </li>
-
-              <li>
-                <label for='grade-input'>Nota de 1 a 7 </label>
-                <input
-                  id='grade-input'
-                  type='number'
-                  name='grade'
-                  value={review.grade}
-                  min='0'
-                  max='7'
-                  onChange={e => handleChange(e)}
-                />
-              </li>
-              <li>
-                {' '}
-                <label id='review-textarea-label' for='review-textarea'>
-                  Comentario{' '}
-                </label>
-                <textarea
-                  id='review-textarea'
-                  type='text'
-                  value={review.review}
-                  name='review'
-                  onChange={e => handleChange(e)}
-                />
-              </li>
-              <li className={styles.buttonsSpace}>
-                <button
-                  type='button'
-                  onClick={() => {
-                    setNewReview(false);
-                  }}
-                >
-                  Cancelar
-                </button>
-                <button type='submit'>Agregar</button>
-              </li>
-            </ul> */}
           </form>
         </div>
       )}

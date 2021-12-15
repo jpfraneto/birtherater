@@ -1,0 +1,29 @@
+.outerDiv {
+  width: 80%;
+  max-width: 777px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.outerDiv:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.imageStyle {
+  width: 188px;
+  height: 188px;
+  border-radius: 3px;
+  border: solid black 8px;
+}
+
+.containerDiv {
+  width: 60%;
+}
+
+.containerDiv h4 {
+  font-size: 24px;
+  margin: 0 20px 30px;
+}

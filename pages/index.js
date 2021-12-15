@@ -3,6 +3,9 @@ import Search from '../components/Search';
 import ProfessionalsDisplay from '../components/ProfessionalsDisplay';
 import FooterSection from '../components/FooterSection';
 import Loader from '../components/Loader';
+import LandingSection from '../components/LandingSecond';
+import AboutTheProject from '../components/AboutTheProject';
+import ThirdSection from '../components/ThirdSection';
 import Modal from '../components/Modal';
 import { useState } from 'react';
 
@@ -31,6 +34,9 @@ export default function Profesionals({}) {
         <ProfessionalsDisplay
           professionals={profesionales ? profesionales : data.message}
         />
+        <LandingSection />
+        <AboutTheProject />
+        <ThirdSection />
       </section>
       <FooterSection />
     </main>
