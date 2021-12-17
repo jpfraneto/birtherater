@@ -1,6 +1,7 @@
 .profesionalProfile {
   width: 60%;
   position: fixed;
+  z-index: 1000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -25,14 +26,30 @@
 
 .profSubtitle {
   text-align: center;
+  margin-bottom: 12px;
 }
 
 .newReviewBtn {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   width: 30%;
 }
 
 .profTitle {
   display: flex;
   justify-content: center;
+}
+
+.btnClose {
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  cursor: pointer;
+}
+
+.btnCloseBottom {
+  cursor: pointer;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
 }
