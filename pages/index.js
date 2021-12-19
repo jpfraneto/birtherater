@@ -7,8 +7,6 @@ import LandingSection from '../components/LandingSecond';
 import AboutTheProject from '../components/AboutTheProject';
 import ProfesionalProfile from '../components/ProfesionalProfile';
 import ThirdSection from '../components/ThirdSection';
-import Modal from '../components/Modal';
-import ReactCSSTransitionGroup from 'react-transition-group';
 import { useState } from 'react';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
@@ -24,18 +22,11 @@ export default function Profesionals({}) {
   return (
     <main>
       {showProfessional && (
-        <ReactCSSTransitionGroup
-          transitionName='example'
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-        >
-          {/* <ProfesionalProfile
-            key='wenacompare'
-            setShowProfessional={setShowProfessional}
-            profesional={showProfessional}
-          /> */}
-          <h1>Wena compare</h1>
-        </ReactCSSTransitionGroup>
+        <ProfesionalProfile
+          key='wenacompare'
+          setShowProfessional={setShowProfessional}
+          profesional={showProfessional}
+        />
       )}
       <section
         id='main-section'
